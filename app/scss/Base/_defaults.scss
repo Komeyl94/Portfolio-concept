@@ -1,0 +1,74 @@
+html, body, ul, figure, section, aside, header, footer, div, form {
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    font-size: $font-size;
+    font-family: $font-family;
+    direction: $direction;
+    background: #e7e7e7;
+}
+body {
+    overflow-x: hidden;
+}
+::selection {
+    background-color: #00f2ff;
+    color: #ffffff;
+}
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a {
+    color: $link-color;
+    text-decoration: none;
+}
+a:hover {
+    color: $link-hover;
+}
+a:focus, a:hover, a:visited, a:active {
+    outline: none;
+}
+input {
+    font-family: $font-family;
+    &::-webkit-input-placeholder {
+       font-family: $font-family;
+    }
+    &:-moz-placeholder {
+       font-family: $font-family;
+    }
+    &::-moz-placeholder {
+       font-family: $font-family;
+    }
+    &:-ms-input-placeholder {  
+       font-family: $font-family;
+    }
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: normal;
+} 

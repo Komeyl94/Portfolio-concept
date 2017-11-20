@@ -1,0 +1,132 @@
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) { // use this mixin for font-size of child elements, not body
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+  @-moz-keyframes $animation-name {
+    @content;
+  }  
+  @-ms-keyframes $animation-name {
+    @content;
+  }
+  @-o-keyframes $animation-name {
+    @content;
+  }  
+  @keyframes $animation-name {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+     -moz-box-sizing: $box-model; // Firefox <= 19
+          box-sizing: $box-model;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;
+}
+
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin abs-pos ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  position: absolute;
+}
+
+@mixin line-height($heightValue: 12 ){
+	line-height: $heightValue + px; //fallback for old browsers
+	line-height: (0.125 * $heightValue) + rem;
+}
+
+@mixin arrow($position, $size, $color, $left: 20px) {
+    content: “”;
+    left: $left;
+    position: absolute;
+    top: -$size;
+
+    @if $position == down {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-top: $size solid $color;
+    }
+
+    @else if $position == left {
+        border-bottom: $size solid transparent;
+        border-right: $size solid $color;
+        border-top: $size solid transparent;
+    }
+
+    @else if $position == right {
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+        border-top: $size solid transparent;
+    }
+
+    @else if $position == up {
+        border-bottom: $size solid $color;
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+    }
+}
+@mixin breakpoint($class) {
+    @if $class == large {
+        @media screen and (min-width: $large) { @content; }
+    }
+ 
+    @else if $class == medium {
+        @media screen and (min-width: $medium) and (max-width: $large) { @content; }
+    }
+ 
+    @else if $class == small {
+        @media screen and (min-width: $small) and (max-width: $medium) { @content; }
+    }
+ 
+    @else if $class == xsmall {
+        @media screen and (max-width: $small) { @content; }
+    }
+    
+    @else if $class == print {
+        @media print { @content; }
+    }
+}

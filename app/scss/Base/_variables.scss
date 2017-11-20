@@ -1,0 +1,48 @@
+// ****** fonts ******
+$font-size: 16px; // in px
+$font-family:'Josefin Sans', sans-serif;
+
+// ****** sizes ******
+$large: 70em; // in em
+$medium: 45em; // in em
+$small: 30em; // in em
+
+// ****** colors ******
+$black: #423F37; // never use pure black
+$base-color: white;
+$base-orange: #ef8e27;
+$dark-orange: #cc6f0d;
+$base-green: #09928d;
+$dark-green: #0d566f;
+$dark-blue: #4f5675;
+$link-color: $base-green;
+$link-hover: $dark-green;
+
+// ****** helpers  ******
+$direction: ltr;
+
+// ****** grid  ******
+// Helpers
+$full:        100%;
+$half:        100% / 2;
+
+// Example padding for grid
+$bit-padding: 0;
+
+// Grid widths
+$start:       1;
+$end:         12;
+
+
+$bar-width: 18px;
+$bar-height: 2px;
+$bar-spacing: 7px;
+
+// Social Colors
+// ====================================================================
+
+$facebook_color           : hsla(222, 47%, 40%, 1);     // #365397
+$twitter_color            : hsla(198, 100%, 47%, 1);    // #00a9f1
+$linkedin_color           : hsla(203, 100%, 35%, 1);    // #006db3 
+$google_plus_color        : hsla(8, 74%, 53%, 1);       // #e0452c 
+$instagram_color          : hsla(208, 46%, 41%, 1);     // #396d9a
